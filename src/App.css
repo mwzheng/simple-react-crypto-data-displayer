@@ -1,6 +1,6 @@
 body {
   background-color: #121212;
-  color: #fff;
+  color: rgb(223, 223, 223);
   font-family: 'Monaco', 'Arial';
 }
 
@@ -38,6 +38,12 @@ td {
   text-align: center;
 }
 
+.dataField {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
 .footerContainer {
   text-align: center;
 }
@@ -46,4 +52,16 @@ td {
   font-size: 1.5rem;
   margin: 10px 20px;
   border-radius: 5px;
+}
+
+.red, .green {
+  font-weight: bold;
+}
+
+.red {
+  color: rgb(228, 97, 97);
+}
+
+.green {
+  color: rgb(76, 153, 76);
 }
