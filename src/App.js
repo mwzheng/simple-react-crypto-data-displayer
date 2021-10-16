@@ -1,26 +1,31 @@
 import './App.css';
 import Header from './components/Header';
 import Crypto from './components/Crypto';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
-  const data =
-  {
-    "asset_id": "USDT",
-    "name": "Tether",
-    "price": 1.0000328932034872,
-    "volume_24h": 25975971682.39115,
-    "change_1h": -5.698536707989724,
-    "change_24h": 6.252042693046506,
-    "change_7d": -0.18818678223110588,
-    "status": "recent",
-    "created_at": "2021-09-21T01:53:50",
-    "updated_at": "2021-10-16T14:53:41.894539"
-  };
+  const [data, setData] = useState([]);
+  const [start, setStart] = useState(0);
+
+  useEffect(() => {
+    async function retrieveData() {
+      let data = await axios.get(`/assets?start=${start}`).then(res => {
+        return res.data.assets;
+      });
+
+      setData(data);
+    }
+
+    retrieveData();
+  }, [start]);
 
   return (
     <div className="App">
       <Header title='Crypto Data' />
-      <Crypto data={data} />
+      {data.map(aCrypto => {
+        return <Crypto key={aCrypto.asset_id} data={aCrypto} />
+      })}
     </div>
   );
 }

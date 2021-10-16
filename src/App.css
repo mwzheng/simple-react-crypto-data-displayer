@@ -16,6 +16,7 @@ table {
   font-size: 1rem;
   border-radius: 5px;
   border-spacing: 0px; 
+  width: 800px;
 }
 
 td {
@@ -28,7 +29,7 @@ td {
 .cryptoData {
   background-color:#363636 ;
   width: max-content;
-  margin: 10px auto;
+  margin: 40px auto;
   border-radius: 5px;
 }
 
