@@ -1,0 +1,38 @@
+body {
+  background-color: #121212;
+  color: #fff;
+  font-family: 'Monaco', 'Arial';
+}
+
+.title {
+  color: rgb(219, 219, 219);
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 15px 0;
+  text-shadow: 2px 2px #646464;
+}
+
+table {
+  font-size: 1rem;
+  border-radius: 5px;
+  border-spacing: 0px; 
+}
+
+td {
+  padding: 20px 30px;
+  border-style: ridge;
+  border-radius: 1px;
+  border-color: rgb(180, 180, 180);
+}
+
+.cryptoData {
+  background-color:#363636 ;
+  width: max-content;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.cryptoName {
+  font-size: 1.75rem;
+  text-align: center;
+}
