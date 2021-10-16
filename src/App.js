@@ -11,11 +11,16 @@ function App() {
 
   useEffect(() => {
     async function retrieveData() {
-      let data = await axios.get(`/assets?start=${start}`).then(res => {
-        return res.data.assets;
-      });
+      let cryptoData = await axios.get(`/assets?start=${start}`)
+        .then(res => {
+          return res.data.assets;
+        })
+        .catch(err => {
+          alert('Something is wrong. CryptingUp API may be down. Try again later.');
+          console.log(err);
+        })
 
-      setData(data);
+      setData(cryptoData);
     }
 
     retrieveData();
@@ -25,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <Header title='Crypto Data' />
-      {data.map(aCrypto => {
+      {data === undefined ? null : data.map(aCrypto => {
         return <Crypto key={aCrypto.asset_id} data={aCrypto} />
       })}
       <Footer start={start} setStart={setStart} />
