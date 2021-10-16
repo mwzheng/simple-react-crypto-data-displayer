@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/Header';
 import Crypto from './components/Crypto';
+import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -18,6 +19,7 @@ function App() {
     }
 
     retrieveData();
+    window.scrollTo(0, 0);
   }, [start]);
 
   return (
@@ -26,6 +28,7 @@ function App() {
       {data.map(aCrypto => {
         return <Crypto key={aCrypto.asset_id} data={aCrypto} />
       })}
+      <Footer start={start} setStart={setStart} />
     </div>
   );
 }
